@@ -1,0 +1,200 @@
+@media(max-width: 1200px) {
+    .column_medium {
+        width: 45%;
+    }
+    
+    .column_medium:nth-child(1) {
+        margin-right: 5%;
+    }
+    
+    .column_medium:nth-child(2) {
+        margin-left: 5%;
+    }
+    
+    .img_content:nth-child(2) {
+        align-items: center;
+    }
+}
+
+@media(max-width: 1250px){
+    .grid_2{
+        height: auto;
+    }
+    .img_2_top{
+        height: 220px;
+    }
+}
+
+
+@media(max-width: 1024px) {
+    section.welcome_nft_wrapper {
+        padding: 50px 50px;
+    }
+    
+    .column_medium {
+        width: 48%;
+    }
+    
+    .column_medium:nth-child(1) {
+        margin-right: 2%;
+    }
+    
+    .column_medium:nth-child(2) {
+        margin-left: 2%;
+    }
+
+    .content_nft > h2 {
+        font-size: 34px;
+    }
+
+    .faq_according_wrapper {
+        width: 80%;
+    }
+}
+
+
+@media(max-width: 992px){
+    .grid_1{
+        width: 48%;
+    }
+    .grid_2_footer{
+        padding: 15px;
+        padding-top: 0;
+    }
+    .grid_2{
+        width: 48%;
+    }
+    .reverse_wrappers_responsive {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+    .content_nft > h2 {
+        font-size: 30px;
+    }
+    
+    .column_medium:nth-child(1) {
+        margin-top: 50px;
+    }
+    
+    .column_medium {
+        width: 90%;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .faq_according_wrapper {
+        width: 100%;
+    }
+
+    .testimonial_img_content {
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+    .test_img_content > img {
+        width: 50%;
+    }
+    
+    .testimonial_content {
+        margin: 0 !important;
+    }
+}
+
+@media(max-width: 768px){
+    .grid_1{
+        width: 90%;
+    }
+    #sec_2  p br{
+        display: none;
+    }
+    .grid_2{
+        width: 90%;
+    }
+    section.welcome_nft_wrapper {
+        padding: 45px 45px;
+    }
+    
+    .column_medium {
+        width: 90%;
+    }
+
+    .faqs_title_text {
+        width: 90%;
+    }
+
+    section.testimonial {
+        padding: 50px 35px;
+    }
+    
+    .test_img_content > img {
+        width: 55%;
+    }
+    section.interested_partnering {
+        padding: 40px 50px;
+    }
+    section.faqs {
+        padding-top: 0;
+    }
+    #sec_2 {
+        padding-top: 0;
+    }
+}
+
+@media(max-width: 600px){
+    .grid_1{
+        width: 100%;
+        height: 280px;
+    }
+    section.faqs {
+        padding: 50px 20px;
+    }
+    section.testimonial {
+        padding: 50px 20px;
+    }
+}
+
+@media(max-width: 500px){
+    #sec_2{
+        padding: 70px 20px;
+        padding-top: 0;
+    }
+    #sec_3{
+        padding: 70px 20px;
+    }
+    section.welcome_nft_wrapper {
+        padding: 35px 20px;
+    }
+    
+    .column_medium {
+        width: 95%;
+    }
+    
+    .content_nft > h2 {
+        font-size: 28px;
+    }
+
+    section.faqs {
+        padding: 40px 40px;
+        padding-top: 0;
+    }
+    
+    .faqs_title_text {
+        width: 100%;
+    }
+
+    .faqs_qa {
+        margin-top: 55px;
+    }
+}
+
+@media(max-width: 380px) {
+    section.faqs {
+        padding: 40px 25px;
+    }
+
+    section.testimonial {
+        padding: 45px 20px;
+    }
+}
