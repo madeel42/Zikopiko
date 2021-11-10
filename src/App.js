@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import React, { useContext }  from "react";
+import React, { useContext,useEffect }  from "react";
 import Home from './pages/Home';
 import MarketPlace from "./pages/MarketPlace";
 import GasMarket from "./pages/GasMarket";
@@ -15,9 +15,13 @@ import StatsRanking from "./pages/StatsRangking";
 import Suggetion from "./pages/Suggetion";
 import { globalContext } from './context/GlobalState'
 const App = () => {
-  const { Nftitem } = useContext(globalContext)
-  console.log(Nftitem,'NftItem');
+  const [{ web3,Nftitem },dispatch] = useContext(globalContext)
 
+//  console.log(Nftitem,web3,'NftItem');
+
+  useEffect(() => {
+    console.log('Global state in App.js',web3,Nftitem);
+}, [web3]);
   return (
     <Router>
       <Switch>
