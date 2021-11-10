@@ -5,8 +5,8 @@ import {loadBlockchain} from '../store/asyncActions'
 ///Create initial State
 
 const initialState = {
-    Nftitem:'8',
-    web3:'7',
+    Nftitem:'1',
+    web3:null,
     web3LoadingErrorMessage: "",
     web3Loadded: false,
     accounts: [],

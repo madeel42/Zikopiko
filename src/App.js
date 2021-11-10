@@ -15,13 +15,13 @@ import StatsRanking from "./pages/StatsRangking";
 import Suggetion from "./pages/Suggetion";
 import { globalContext } from './context/GlobalState'
 const App = () => {
-  const [{ web3,Nftitem },dispatch] = useContext(globalContext)
+  const [{ web3,Nftitem,accounts,nftContract },dispatch] = useContext(globalContext)
 
 //  console.log(Nftitem,web3,'NftItem');
 
   useEffect(() => {
-    console.log('Global state in App.js',web3,Nftitem);
-}, [web3]);
+    console.log('Global state in App.js',web3,nftContract,accounts);
+}, [web3,accounts]);
   return (
     <Router>
       <Switch>
