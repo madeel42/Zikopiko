@@ -3,7 +3,7 @@
 
  import {  NFT_CONTRACT_ABI,NFT_CONTRACT_ADDRESS } from '../contract/NFT_ABI';
  
- import { getnFtList } from './callHelpers';
+  import { getnFt } from './callHelpers';
 
 
 export const loadBlockchain = async (dispatch) => {
@@ -31,7 +31,7 @@ export const loadBlockchain = async (dispatch) => {
              console.log("nft contract", nftContract);
              console.log("nftcontract methods", nftContract.methods);
         
-            await getnFtList(web3, nftContract,dispatch); 
+           let resp= await getnFt(web3, nftContract,dispatch); 
          
 
         }

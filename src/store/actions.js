@@ -47,3 +47,9 @@ export const setNetwork = (provider) => {
         payload: provider
     };
 }
+export const setNFTList = (nftList) => {
+    return {
+        type: 'SETUP_NFT_LIST',
+        payload: nftList
+    };
+}

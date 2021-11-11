@@ -35,6 +35,11 @@ export const AppReducer = (state, action) => {
                       ...state,
                       marketContract: action.payload
                     }
+                    case 'SETUP_NFT_LIST':
+                    return {
+                      ...state,
+                      marketContract: action.payload
+                    }
         default:
 
             return state

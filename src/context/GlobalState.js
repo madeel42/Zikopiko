@@ -11,7 +11,8 @@ const initialState = {
     web3Loadded: false,
     accounts: [],
     nftContract:null,
-    marketContract:null
+    marketContract:null,
+    nftList:[""]
 }
 
 export const globalContext = createContext(initialState);
