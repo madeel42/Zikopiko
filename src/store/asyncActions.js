@@ -1,12 +1,10 @@
  import { setupWeb3,setNetwork,setUpMarketplace, setupNFTContract, addEthereumAccounts, web3LoadingError } from "./actions";
  import Web3 from "web3";
-// import { CONTRACT_ABI, CONTRACT_ADDRESS } from '../contract/ABI';
-// import WalletConnectProvider from "@walletconnect/web3-provider";
-// import { MARKETPLACE_ABI, MARKETPLACE_ADDRESS } from '../contract/marketplace';
-// import {  RUBY_STAKING_ABI,RUBY_STAKING_ADDRESS } from '../contract/rubyStakingABI';
+
  import {  NFT_CONTRACT_ABI,NFT_CONTRACT_ADDRESS } from '../contract/NFT_ABI';
-// import {getPoolbyId,getUserData,getBalance, refresh } from "./callHelpers";
-//import { ethers } from 'ethers';
+ 
+ import { getnFtList } from './callHelpers';
+
 
 export const loadBlockchain = async (dispatch) => {
     console.log("in Load Blockchain",dispatch);
@@ -30,10 +28,10 @@ export const loadBlockchain = async (dispatch) => {
          
             const accounts = await web3.eth.getAccounts();
             dispatch(addEthereumAccounts(accounts));
-             console.log("stakingcontract", nftContract);
-             console.log("staking methods", nftContract.methods);
+             console.log("nft contract", nftContract);
+             console.log("nftcontract methods", nftContract.methods);
         
-           
+            await getnFtList(web3, nftContract,dispatch); 
          
 
         }
