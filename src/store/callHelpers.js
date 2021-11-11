@@ -14,14 +14,15 @@ export const getnFt = async (web3, nftContract,dispatch) => {
 
     for (var i=0; i<nftCount;i++){
         let Uri = await nftContract.methods.tokenURI(i).call();
+        console.log("URI",Uri)
         nftList.push(Uri);
 
     }
     console.log("NFT URIs",nftList);
     dispatch(setNFTList(nftList));
     
-    const events= await nftContract.getPastEvents('Transfer');
-    console.log("Events",events);
+  //  const events= await nftContract.getPastEvents('Transfer');
+   // console.log("Events",events);
 
 return nftList;
     

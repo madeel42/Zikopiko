@@ -21,7 +21,7 @@ const App = () => {
 
   useEffect(() => {
     console.log('Global state in App.js',web3,nftContract,accounts,nftList);
-}, [web3,accounts]);
+}, [web3,accounts,nftList]);
   return (
     <Router>
       <Switch>

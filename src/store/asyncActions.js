@@ -1,4 +1,4 @@
- import { setupWeb3,setNetwork,setUpMarketplace, setupNFTContract, addEthereumAccounts, web3LoadingError } from "./actions";
+ import { setupWeb3,setNFTList,setNetwork,setUpMarketplace, setupNFTContract, addEthereumAccounts, web3LoadingError } from "./actions";
  import Web3 from "web3";
 
  import {  NFT_CONTRACT_ABI,NFT_CONTRACT_ADDRESS } from '../contract/NFT_ABI';
@@ -31,8 +31,8 @@ export const loadBlockchain = async (dispatch) => {
              console.log("nft contract", nftContract);
              console.log("nftcontract methods", nftContract.methods);
         
-           let resp= await getnFt(web3, nftContract,dispatch); 
-         
+           let list= await getnFt(web3, nftContract,dispatch); 
+         //  dispatch(setNFTList(list));
 
         }
         else {
