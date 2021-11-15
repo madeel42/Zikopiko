@@ -1,6 +1,6 @@
 import React, { useContext,useState, useEffect } from "react";
 import classes from "./form.module.css";
- import{buyNFT} from "../../store/writeHelpers";
+ import{mintNFT} from "../../store/writeHelpers";
  import { globalContext } from '../../context/GlobalState';
 
 // import { Form, Input, InputNumber, Button, message } from "antd";
@@ -37,7 +37,8 @@ const NFTForm = () => {
     const [SaveRes, setSaveRes] = useState('');
     const [id, setid] = useState(null);
     const [imgUrl, setimgUrl] = useState('');
-
+    const [nftId, setNftId] = useState(null);
+    const [uri, setUri] = useState('');
     const [cardImage, setcardImage] = useState();
     const handleValueChange = (e) => {
         setNFTValue({ ...NFTValue, [e.target.name]: e.target.value });
@@ -71,8 +72,15 @@ const NFTForm = () => {
     function handleChange(e) {
         setNFTValue({ ...NFTValue, catagory: e.target.value })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+let response=await mintNFT(web3,nftContract,accounts,dispatch);
+//if(response){
+    setNftId(response.events.nftCreated.returnValues._tokenId);
+    setUri(response.events.nftCreated.returnValues._tokenUri);
+//}
+console.log("after NFT mint in NFT Form",response.events.nftCreated.returnValues._tokenId,response.events.nftCreated.returnValues._tokenUri);
 
+        /*
         console.log(id, 'dd')
         console.log(imgUrl, 'imgUrl')
         e.preventDefault();
@@ -96,6 +104,7 @@ const NFTForm = () => {
                     price
                 });
         }, 1000);
+        */
     };
     const NAME_OF_UPLOAD_PRESET = "dya03eiu";
     const handleImageChange = async (e) => {
