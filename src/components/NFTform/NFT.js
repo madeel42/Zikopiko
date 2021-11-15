@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext,useState, useEffect } from "react";
 import classes from "./form.module.css";
-// import "antd/dist/antd.css";
+ import{buyNFT} from "../../store/writeHelpers";
+ import { globalContext } from '../../context/GlobalState';
+
 // import { Form, Input, InputNumber, Button, message } from "antd";
-import { useState } from "react";
 import { Form } from 'react-bootstrap';
 // import { STATES } from "mongoose";
 // const layout = {
@@ -25,6 +26,7 @@ import { Form } from 'react-bootstrap';
 // };
 // const key = "updatable";
 const NFTForm = () => {
+    const [{ web3, accounts, nftContract, nftList }, dispatch] = useContext(globalContext)
 
     const [NFTValue, setNFTValue] = useState({
         name: "",
@@ -70,6 +72,7 @@ const NFTForm = () => {
         setNFTValue({ ...NFTValue, catagory: e.target.value })
     }
     const handleSubmit = (e) => {
+
         console.log(id, 'dd')
         console.log(imgUrl, 'imgUrl')
         e.preventDefault();
