@@ -37,8 +37,8 @@ const NFTForm = () => {
     const [SaveRes, setSaveRes] = useState('');
     const [id, setid] = useState(null);
     const [imgUrl, setimgUrl] = useState('');
-    const [nftId, setNftId] = useState(null);
-    const [uri, setUri] = useState('');
+    const [nftId, setnftId] = useState(null);
+    const [uri, seturi] = useState('');
     const [cardImage, setcardImage] = useState();
     const handleValueChange = (e) => {
         setNFTValue({ ...NFTValue, [e.target.name]: e.target.value });
@@ -75,10 +75,11 @@ const NFTForm = () => {
     const handleSubmit = async (e) => {
 let response=await mintNFT(web3,nftContract,accounts,dispatch);
 //if(response){
-    setNftId(response.events.nftCreated.returnValues._tokenId);
-    setUri(response.events.nftCreated.returnValues._tokenUri);
+    setnftId(response.events.nftCreated.returnValues);
+    seturi(response.events.nftCreated.returnValues._tokenUri);
 //}
 console.log("after NFT mint in NFT Form",response.events.nftCreated.returnValues._tokenId,response.events.nftCreated.returnValues._tokenUri);
+console.log("States of Tokens",nftId,uri);
 
         /*
         console.log(id, 'dd')
