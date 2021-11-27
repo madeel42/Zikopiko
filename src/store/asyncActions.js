@@ -2,6 +2,7 @@
  import Web3 from "web3";
 
  import {  NFT_CONTRACT_ABI,NFT_CONTRACT_ADDRESS } from '../contract/NFT_ABI';
+ import {  MARKET_ADDRESS,MARKET_CONTRACT_ABI } from '../contract/Market_ABI';
  
   import { getnFt } from './callHelpers';
 
@@ -25,14 +26,18 @@ export const loadBlockchain = async (dispatch) => {
             const nftContract = new web3.eth.Contract(NFT_CONTRACT_ABI, NFT_CONTRACT_ADDRESS);
           
             dispatch(setupNFTContract(nftContract));
+
+            const marketContract = new web3.eth.Contract(MARKET_CONTRACT_ABI, MARKET_ADDRESS);
+          
+            dispatch(setUpMarketplace(marketContract));
          
             const accounts = await web3.eth.getAccounts();
             dispatch(addEthereumAccounts(accounts));
              console.log("nft contract", nftContract);
              console.log("nftcontract methods", nftContract.methods);
         
-           let list= await getnFt(web3, nftContract,dispatch); 
-         //  dispatch(setNFTList(list));
+           let list= await getnFt(web3, marketContract,dispatch); 
+           dispatch(setNFTList(list));
 
         }
         else {

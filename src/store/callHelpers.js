@@ -7,15 +7,15 @@
 
 
 
-export const getnFt = async (web3, nftContract,dispatch) => {
- const nftCount= await nftContract.methods.nftCounter().call();
+export const getnFt = async (web3, mktContract,dispatch) => {
+ const nftCount=2; //await nftContract.methods.nftCounter().call();
  var nftList=[];
     console.log("nft count", nftCount); 
 
     for (var i=0; i<nftCount;i++){
-        let Uri = await nftContract.methods.tokenURI(i).call();
-        console.log("URI",Uri)
-        nftList.push(Uri);
+        let nft = await mktContract.methods.viewNFT(i).call();
+        console.log("URI",nft)
+        nftList.push(nft);
 
     }
     console.log("NFT URIs",nftList);
