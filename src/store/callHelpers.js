@@ -21,8 +21,7 @@ export const getnFt = async (web3, mktContract,dispatch) => {
     console.log("NFT URIs",nftList);
     dispatch(setNFTList(nftList));
     
-  //  const events= await nftContract.getPastEvents('Transfer');
-   // console.log("Events",events);
+  
 
 return nftList;
     
