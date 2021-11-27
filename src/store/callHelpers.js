@@ -8,7 +8,7 @@
 
 
 export const getnFt = async (web3, mktContract,dispatch) => {
- const nftCount=2; //await nftContract.methods.nftCounter().call();
+ const nftCount=await mktContract.methods.itemCounter().call();
  var nftList=[];
     console.log("nft count", nftCount); 
 
