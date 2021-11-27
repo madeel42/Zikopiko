@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const Card = ({title, subtitle, image}) =>{
+const Card = ({title, subtitle, image,price}) =>{
 
     return(
         <div className="col-sm-12 col-md-6 col-lg-4 py-4">
@@ -16,11 +16,11 @@ const Card = ({title, subtitle, image}) =>{
               </div>
               <div className="pro-show-right-product-card-sec-title">
                 <p>{title}</p>
-                <p><img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> 0.12345</p>
+                <p><img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> {price}</p>
               </div>
               <div className="pro-show-right-product-card-third-title">
                 <p><span><i className="far fa-heart" /></span> 3</p>
-                <p>last <img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> <span>0.12345</span></p> 
+                <p>last <img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> <span>{price}</span></p> 
               </div>
             </div>
           </a>

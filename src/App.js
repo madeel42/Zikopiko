@@ -18,6 +18,7 @@ import { Nftitem } from "./components/NFTform/Item/Nftitem";
 import { globalContext } from './context/GlobalState'
 const App = () => {
   const [{ web3, accounts, nftContract, nftList }, dispatch] = useContext(globalContext)
+  
 
   //  console.log(Nftitem,web3,'NftItem');
 

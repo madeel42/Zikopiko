@@ -73,15 +73,16 @@ const NFTForm = () => {
         setNFTValue({ ...NFTValue, catagory: e.target.value })
     }
     const handleSubmit = async (e) => {
-let response=await mintNFT(web3,nftContract,accounts,dispatch);
+        e.preventDefault()
+// let response=await mintNFT(web3,nftContract,accounts,dispatch);
 //if(response){
-    setnftId(response.events.nftCreated.returnValues);
-    seturi(response.events.nftCreated.returnValues._tokenUri);
+    // setnftId(response.events.nftCreated.returnValues);
+    // seturi(response.events.nftCreated.returnValues._tokenUri);
 //}
-console.log("after NFT mint in NFT Form",response.events.nftCreated.returnValues._tokenId,response.events.nftCreated.returnValues._tokenUri);
-console.log("States of Tokens",nftId,uri);
+// console.log("after NFT mint in NFT Form",response.events.nftCreated.returnValues._tokenId,response.events.nftCreated.returnValues._tokenUri);
+// console.log("States of Tokens",nftId,uri);
 
-        /*
+        
         console.log(id, 'dd')
         console.log(imgUrl, 'imgUrl')
         e.preventDefault();
@@ -105,7 +106,7 @@ console.log("States of Tokens",nftId,uri);
                     price
                 });
         }, 1000);
-        */
+    
     };
     const NAME_OF_UPLOAD_PRESET = "dya03eiu";
     const handleImageChange = async (e) => {
