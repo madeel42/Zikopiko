@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 
 const Card = ({title, subtitle, image,price}) =>{
-
+const handleBuy = (e) =>{
+  console.log('buy --->', e)
+}
     return(
         <div className="col-sm-12 col-md-6 col-lg-4 py-4">
         <div className="pro-show-right-product-card">
@@ -16,7 +18,7 @@ const Card = ({title, subtitle, image,price}) =>{
               </div>
               <div className="pro-show-right-product-card-sec-title">
                 <p>{title}</p>
-                <p><img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> {price}</p>
+                <p><img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> <button onClick={()=>handleBuy(title)} style={{padding: '0.01rem 0.3rem'}} type="button" class="btn btn-primary">buy</button> </p>
               </div>
               <div className="pro-show-right-product-card-third-title">
                 <p><span><i className="far fa-heart" /></span> 3</p>
