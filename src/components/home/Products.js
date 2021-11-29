@@ -26,6 +26,7 @@ const Products = () => {
         }).then(res => {
           console.log(res.status, 'res')
           if (!res.status) {
+            res.itemId  = NFTToken.itemId
             setNFTITEM(pre => [...pre, res])
           }
         })
@@ -207,6 +208,7 @@ const Products = () => {
                     subtitle={nftitm.description}
                     image={nftitm.imgUrl}
                     price={nftitm.price}
+                    itemId = {nftitm.itemId}
                   />
                   
                 })}

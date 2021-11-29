@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 
-const Card = ({title, subtitle, image,price}) =>{
+const Card = ({title, subtitle, image,price,itemId}) =>{
 const handleBuy = (e) =>{
   console.log('buy --->', e)
 }
+console.log(itemId,'itemId')
     return(
         <div className="col-sm-12 col-md-6 col-lg-4 py-4">
         <div className="pro-show-right-product-card">
