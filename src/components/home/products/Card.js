@@ -1,8 +1,11 @@
-import React, { useState } from "react"
+import React, {useContext, useState } from "react";
+import { globalContext } from '../../../context/GlobalState'
 
 const Card = ({title, subtitle, image,price,itemId}) =>{
+  const [{ web3, accounts, nftContract, nftList }, dispatch] = useContext(globalContext)
 const handleBuy = (e) =>{
-  console.log('buy --->', e)
+  console.log('buy --->', e);
+  console.log("Item to buy",itemId,price);
 }
 console.log(itemId,'itemId')
     return(
