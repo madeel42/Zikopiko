@@ -15,6 +15,7 @@ export const getnFt = async (web3, mktContract,dispatch) => {
     for (var i=0; i<nftCount;i++){
         let nft = await mktContract.methods.viewNFT(i).call();
         console.log("URI",nft)
+        nft.itemId=i;
         nftList.push(nft);
 
     }
