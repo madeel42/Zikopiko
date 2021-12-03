@@ -1,0 +1,21 @@
+.containerFluidB{
+    max-width: 90%;
+}
+ .para{
+    margin-top: 5px !important
+}
+.PSListStyle li{
+list-style-type: disc;
+}
+.cardsEndDiv button{
+    padding: 6px 31px;
+    border: none;
+    background: burlywood;
+    color: white;
+    border-radius: 12px;
+    margin-top: 18px;
+}
+.cprice{
+    font-weight: 600;
+    color: rgb(112, 122, 131);
+}

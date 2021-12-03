@@ -1,4 +1,5 @@
 import React, {useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { globalContext } from '../../../context/GlobalState'
 
 const Card = ({title, subtitle, image,price,itemId}) =>{
@@ -10,7 +11,7 @@ const handleBuy = (e) =>{
 console.log(itemId,'itemId')
     return(
         <div className="col-sm-12 col-md-6 col-lg-4 py-4">
-        <div className="pro-show-right-product-card">
+       <Link style={{textDecoration:'none'}} to={`nftdetails/${itemId}`}> <div className="pro-show-right-product-card">
           <a href="#">
             <div className="pro-show-right-product-card-image">
               <img src={image} alt={title} />
@@ -22,7 +23,7 @@ console.log(itemId,'itemId')
               </div>
               <div className="pro-show-right-product-card-sec-title">
                 <p>{title}</p>
-                <p><img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> <button onClick={()=>handleBuy(title)} style={{padding: '0.01rem 0.3rem'}} type="button" class="btn btn-primary">buy</button> </p>
+                <p><img src="assets/images/SVG Icons/6f8e2979d428180222796ff4a33ab929.svg" alt="" /> <span>{price}</span></p>
               </div>
               <div className="pro-show-right-product-card-third-title">
                 <p><span><i className="far fa-heart" /></span> 3</p>
@@ -30,7 +31,7 @@ console.log(itemId,'itemId')
               </div>
             </div>
           </a>
-        </div>
+        </div></Link>
       </div>
     )
 }

@@ -16,6 +16,7 @@ import Suggetion from "./pages/Suggetion";
 import NFTform from "./components/NFTform/NFT";
 import { Nftitem } from "./components/NFTform/Item/Nftitem";
 import { globalContext } from './context/GlobalState'
+import Nftdetails from './components/market-place/nftdetails'
 const App = () => {
   const [{ web3, accounts, nftContract, nftList }, dispatch] = useContext(globalContext)
   
@@ -55,8 +56,11 @@ const App = () => {
         <Route path="/nftform">
           <NFTform />
         </Route>
-        <Route path="/:id">
-          <Nftitem />
+        <Route path="/nftitem/:id">
+          <NFTform />
+        </Route>
+        <Route path="/nftdetails/:id">
+          <Nftdetails />
         </Route>
         <Route exact={true} path="/">
           <Home />

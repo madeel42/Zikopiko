@@ -35,6 +35,60 @@ const Products = () => {
   }
 
   console.log(NFTITEM, 'nftitem')
+//   const NFTITEM = [
+//     {
+//         _id: "61a1d8c3dc4811accd3ae397",
+//         name: "bnb",
+//         id: 4,
+//         description: "wdw fwef",
+//         imgUrl: "http://res.cloudinary.com/ecomerenceapp/image/upload/v1637996439/pv75uxbwi4gdiiwen8ec.png",
+//         catagory: "nft",
+//         price: 3323.2,
+//         createdAt: "2021-11-27T07:05:39.499Z",
+//         updatedAt: "2021-11-27T07:05:39.499Z",
+//         __v: 0,
+//         itemId: 0
+//     },
+//     {
+//         _id: "61a1d286dc4811accd3ae282",
+//         name: "nftab1",
+//         id: 6,
+//         description: "sefsef efte ",
+//         imgUrl: "http://res.cloudinary.com/ecomerenceapp/image/upload/v1637994825/ntksk8uygngqqf7r4qnt.png",
+//         catagory: "nft",
+//         price: 43.4,
+//         createdAt: "2021-11-27T06:39:02.564Z",
+//         updatedAt: "2021-11-27T06:39:02.564Z",
+//         __v: 0,
+//         itemId: 2
+//     },
+//     {
+//         _id: "61a1d276dc4811accd3ae280",
+//         name: "nftab1",
+//         id: 5,
+//         description: "sefsef ef",
+//         imgUrl: "http://res.cloudinary.com/ecomerenceapp/image/upload/v1637994825/ntksk8uygngqqf7r4qnt.png",
+//         catagory: "nft",
+//         price: 4343,
+//         createdAt: "2021-11-27T06:38:46.736Z",
+//         updatedAt: "2021-11-27T06:38:46.736Z",
+//         __v: 0,
+//         itemId: 1
+//     },
+//     {
+//         _id: "61a1d294dc4811accd3ae284",
+//         name: "nftab1",
+//         id: 7,
+//         description: "sefsef efte ",
+//         imgUrl: "http://res.cloudinary.com/ecomerenceapp/image/upload/v1637994856/vp5qy6qpplr4y9pm04i2.png",
+//         catagory: "nft",
+//         price: 43.4,
+//         createdAt: "2021-11-27T06:39:16.310Z",
+//         updatedAt: "2021-11-27T06:39:16.310Z",
+//         __v: 0,
+//         itemId: 3
+//     }
+// ]
   return (
     <div className="product-show-and-filter-sec-wrap">
       <div className="container">
