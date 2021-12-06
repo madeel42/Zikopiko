@@ -37,7 +37,7 @@ const NFTForm = () => {
     const [SaveRes, setSaveRes] = useState('');
     const [id, setid] = useState(null);
     const [imgUrl, setimgUrl] = useState('');
-    const [nftId, setnftId] = useState(null);
+    const [nftId, setnftId] = useState('');
     const [uri, seturi] = useState('');
     const [cardImage, setcardImage] = useState();
     const handleValueChange = (e) => {
@@ -91,8 +91,8 @@ if(response){
 console.log("States of Tokens",nftId,uri);
 
         
-        console.log(id, 'dd')
-        console.log(imgUrl, 'imgUrl')
+       
+        console.log("imgUrl",uri)
         e.preventDefault();
         // message.loading({ content: "creating...", key });
         let name = NFTValue.name;
