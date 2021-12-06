@@ -53,19 +53,33 @@ const Products = () => {
     })
     if (e.target.value.length === 0) {
       setRangeITEM([])
+
     }
   }
+
   const handleApplyfilter = () => {
     let nftRangeitem = NFTITEM && NFTITEM.length > 0 && NFTITEM.filter((item, i) => {
       return item.price >= priceRange.min && item.price <= priceRange.max
     })
-
     setRangeITEM(nftRangeitem)
 
 
   }
   console.log(RangeITEM, 'RangeITEM');
-
+  const handleChange = (e) => {
+    console.log(e.target.value,'val')
+   let searchResult = NFTITEM && NFTITEM.length > 0 && NFTITEM.filter((item,i)=>{
+    return item.name.toLowerCase().includes(e.target.value)
+    }) 
+    if(e.target.value.length === 0){
+      hitNftApiToken()
+      setNFTITEM([])
+    }else{
+      setNFTITEM(searchResult)
+    }
+    
+    console.log(searchResult,'searchResult');
+  }
   //   const NFTITEM = [
   //     {
   //         _id: "61a1d8c3dc4811accd3ae397",
@@ -234,7 +248,7 @@ const Products = () => {
                 <div className="col-5 ">
                   <form className="search-container-sec">
                     <span><i className="fas fa-search" /></span>
-                    <input type="search" placeholder="Search" aria-label="Search" />
+                    <input type="search" placeholder="Search" aria-label="Search" onChange={handleChange} />
                   </form>
                 </div>
                 <div className="col-7">
