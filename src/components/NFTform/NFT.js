@@ -92,7 +92,7 @@ console.log("States of Tokens",nftId,uri);
 
         
        
-        console.log("imgUrl",uri)
+     //   console.log("imgUrl",uri)
         e.preventDefault();
         // message.loading({ content: "creating...", key });
         let name = NFTValue.name;
