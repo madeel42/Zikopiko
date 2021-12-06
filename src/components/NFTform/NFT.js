@@ -181,7 +181,7 @@ const NFTForm = () => {
                                         onChange={handleValueChange} id="exampleTextarea1" rows="4"></textarea>
                                 </Form.Group>
 
-                                <button type="submit" onClick={handleSubmit} className="btn btn-primary mr-2">Submit</button>
+                                <button type="submit" onClick={handleSubmit} className="btn btn-primary mt-3 mr-2">Submit</button>
                                 {/* <button className="btn btn-dark">Cancel</button> */}
                             </form>
                         </div>

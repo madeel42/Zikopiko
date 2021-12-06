@@ -57,7 +57,7 @@ const App = () => {
           <NFTform />
         </Route>
         <Route path="/nftitem/:id">
-          <NFTform />
+          <Nftitem />
         </Route>
         <Route path="/nftdetails/:id">
           <Nftdetails />

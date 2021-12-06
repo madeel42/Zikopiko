@@ -7,8 +7,8 @@ const Header = () =>{
           <nav className="navbar navbar-expand-lg navbar-light ">
             <a className="navbar-brand" href="#"><img src="assets/images/Logo/Screenshot_45-removebg-preview.png" alt="" /> </a>
             <form className="search-container ml-200">
-              <span><i className="fas fa-search" /></span>
-              <input type="search" placeholder="Search" aria-label="Search" />
+              {/* <span><i className="fas fa-search" /></span>
+              <input type="search" placeholder="Search" aria-label="Search" /> */}
             </form>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon" />
