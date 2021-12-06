@@ -1,6 +1,6 @@
 import React, { useContext,useState, useEffect } from "react";
 import classes from "./form.module.css";
- import{mintNFT} from "../../store/writeHelpers";
+ import{mintNFT,minttoMarketNFT} from "../../store/writeHelpers";
  import { globalContext } from '../../context/GlobalState';
 
 // import { Form, Input, InputNumber, Button, message } from "antd";
@@ -73,12 +73,17 @@ const NFTForm = () => {
         setNFTValue({ ...NFTValue, catagory: e.target.value })
     }
     const handleSubmit = async (e) => {
-        e.preventDefault()
-// let response=await mintNFT(web3,nftContract,accounts,dispatch);
-//if(response){
-    // setnftId(response.events.nftCreated.returnValues);
-    // seturi(response.events.nftCreated.returnValues._tokenUri);
-//}
+        console.log("in submit",price,accounts);
+        try{
+let response=await minttoMarketNFT(web3,nftContract,accounts,price,dispatch);
+if(response){
+    setnftId(response.events.nftCreated.returnValues);
+    seturi(response.events.nftCreated.returnValues._tokenUri);        
+}
+}catch(error){
+            console.log("error in create nft",error);
+        }
+
 // console.log("after NFT mint in NFT Form",response.events.nftCreated.returnValues._tokenId,response.events.nftCreated.returnValues._tokenUri);
 // console.log("States of Tokens",nftId,uri);
 

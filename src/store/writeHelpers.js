@@ -5,6 +5,22 @@ import {  NFT_CONTRACT_ABI,NFT_CONTRACT_ADDRESS } from '../contract/NFT_ABI';
 
  import { getnFt } from './callHelpers';
 
+/* function to mint  to marketNFT*/
+export const minttoMarketNFT= async (web3, contract,accounts,price,dispatch) => {
+   console.log("in before NFT buy", contract);
+   try{
+
+      const result=await contract.methods.minttoMarket(accounts[0],price).send({from:accounts[0]})
+      
+      console.log("result after minting",result);
+      return result;
+   }catch(error){
+      console.log("Error in Minting",error);
+      return false;
+   }
+   
+}
+
 /* function to mint NFT*/
 export const mintNFT = async (web3, contract,accounts,dispatch) => {
    console.log("in before NFT buy", contract);
