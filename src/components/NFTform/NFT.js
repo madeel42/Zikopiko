@@ -77,15 +77,18 @@ const NFTForm = () => {
         try{
 let response=await minttoMarketNFT(web3,nftContract,accounts,price,dispatch);
 if(response){
-    setnftId(response.events.nftCreated.returnValues);
-    seturi(response.events.nftCreated.returnValues._tokenUri);        
+    setnftId(response.events.nftCreated.returnValues._tokenId);
+    seturi(response.events.nftCreated.returnValues._tokenUri);
+    console.log("response afterminting",response);        
+
+    console.log("Id after Minting",response.events.nftCreated.returnValues._tokenId);        
 }
 }catch(error){
             console.log("error in create nft",error);
         }
 
-// console.log("after NFT mint in NFT Form",response.events.nftCreated.returnValues._tokenId,response.events.nftCreated.returnValues._tokenUri);
-// console.log("States of Tokens",nftId,uri);
+
+console.log("States of Tokens",nftId,uri);
 
         
         console.log(id, 'dd')
