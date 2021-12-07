@@ -1,7 +1,7 @@
-import React, { useContext,useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import classes from "./form.module.css";
- import{mintNFT,minttoMarketNFT} from "../../store/writeHelpers";
- import { globalContext } from '../../context/GlobalState';
+import { mintNFT, minttoMarketNFT } from "../../store/writeHelpers";
+import { globalContext } from '../../context/GlobalState';
 
 // import { Form, Input, InputNumber, Button, message } from "antd";
 import { Form } from 'react-bootstrap';
@@ -35,7 +35,7 @@ const NFTForm = () => {
     });
     const [price, setproductPriceValue] = useState(null);
     const [SaveRes, setSaveRes] = useState('');
-    const [id, setid] = useState(null);
+    // const [id, setid] = useState(null);
     const [imgUrl, setimgUrl] = useState('');
     const [nftId, setnftId] = useState('');
     const [uri, seturi] = useState('');
@@ -63,9 +63,9 @@ const NFTForm = () => {
                 }
             });
     }
-    const handleValueChange1 = (e) => {
-        setid(e.target.value);
-    };
+    // const handleValueChange1 = (e) => {
+    //     setid(e.target.value);
+    // };
     const handlePriceChange = (e) => {
         setproductPriceValue(e.target.value);
     };
@@ -73,48 +73,53 @@ const NFTForm = () => {
         setNFTValue({ ...NFTValue, catagory: e.target.value })
     }
     const handleSubmit = async (e) => {
-        console.log("in submit",price,accounts);
-        try{
-let response=await minttoMarketNFT(web3,nftContract,accounts,price,dispatch);
-if(response){
-    setnftId(response.events.nftCreated.returnValues._tokenId);
-    seturi(response.events.nftCreated.returnValues._tokenUri);
-    console.log("response afterminting",response);        
-
-    console.log("Id after Minting",response.events.nftCreated.returnValues._tokenId);        
-}
-}catch(error){
-            console.log("error in create nft",error);
-        }
-
-
-console.log("States of Tokens",nftId,uri);
-
-        
-       
-     //   console.log("imgUrl",uri)
-        e.preventDefault();
-        // message.loading({ content: "creating...", key });
+        e.preventDefault()
+        console.log("in submit", price, accounts);
         let name = NFTValue.name;
         let description = NFTValue.description;
         let catagory = NFTValue.catagory;
-        setTimeout(() => {
-            return NFTValue.name === "" ||
-                NFTValue.description === "" || NFTValue.catagory === "" ||
-                id === null || price === null || imgUrl === ''
-                ? alert(` ${imgUrl.length !== 0 ? "fill required field" : 'uploading img save again...'}`)
-                :
-                // };
-                dispatchData({
-                    name,
-                    description,
-                    imgUrl,
-                    id,
-                    catagory,
-                    price
-                });
-        }, 1000);
-    
+        try {
+            let response = await minttoMarketNFT(web3, nftContract, accounts, price, dispatch);
+            if (response) {
+
+                setnftId(response.events.nftCreated.returnValues._tokenId);
+                seturi(response.events.nftCreated.returnValues._tokenUri);
+                console.log("response afterminting", response);
+
+                console.log("Id after Minting", response.events.nftCreated.returnValues._tokenId);
+                let id = response.events.nftCreated.returnValues._tokenId
+                setTimeout(() => {
+                    return NFTValue.name === "" ||
+                        NFTValue.description === "" || NFTValue.catagory === "" ||
+                        response.events.nftCreated.returnValues._tokenId === null || price === null || imgUrl === ''
+                        ? alert(` ${imgUrl.length !== 0 ? "fill required field" : 'uploading img save again...'}`)
+                        :
+                        // };
+                        dispatchData({
+                            name,
+                            description,
+                            imgUrl,
+                            id,
+                            catagory,
+                            price
+                        });
+                }, 1000);
+            }
+        } catch (error) {
+            console.log("error in create nft", error);
+        }
+
+
+        console.log("States of Tokens", nftId, uri);
+
+
+
+        //   console.log("imgUrl",uri)
+        // e.preventDefault();
+        // message.loading({ content: "creating...", key });
+
+
+
     };
     const NAME_OF_UPLOAD_PRESET = "dya03eiu";
     const handleImageChange = async (e) => {
@@ -139,7 +144,7 @@ console.log("States of Tokens",nftId,uri);
 
 
     console.log(NFTValue);
-    console.log(id);
+    // console.log(id);
     return (
         <div>
             {/* {RedirectCom()}{" "} */}
@@ -151,7 +156,7 @@ console.log("States of Tokens",nftId,uri);
                 <div className="col-12 grid-margin stretch-card">
                     <div className="card">
                         <div className="card-body">
-                        <h4 className="card-title">{SaveRes.length > 0 ? SaveRes : '' }</h4>
+                            <h4 className="card-title">{SaveRes.length > 0 ? SaveRes : ''}</h4>
                             <form className="forms-sample">
                                 <Form.Group>
                                     <label htmlFor="exampleInputName1">Name</label>
@@ -159,10 +164,10 @@ console.log("States of Tokens",nftId,uri);
                                         value={NFTValue.name}
                                         onChange={handleValueChange} id="exampleInputName1" placeholder="Name" />
                                 </Form.Group>
-                                <Form.Group>
+                                {/* <Form.Group>
                                     <label htmlFor="exampleInputName1">id</label>
                                     <Form.Control type="number" className="form-control" name='id' value={id} required onChange={handleValueChange1} placeholder="id" />
-                                </Form.Group>
+                                </Form.Group> */}
                                 <Form.Group>
                                     <label>Price</label>
                                     <Form.Control type="number" className="form-control" value={price} onChange={handlePriceChange} name='price' placeholder="price" />
