@@ -3,8 +3,9 @@ import classes from './style.module.css'
 import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom";
 import { globalContext } from '../../context/GlobalState'
+import { buytNFT } from '../../store/writeHelpers';
 const Nftdetails = (props) => {
-  const [{ web3, accounts, nftContract, nftList }] = useContext(globalContext)
+  const [{ web3, accounts,marketContract, nftContract, nftList },dispatch] = useContext(globalContext)
   const [NFTITEM, setNFTITEM] = useState([])
   const { id } = useParams();
   console.log(id, 'id')
@@ -42,8 +43,15 @@ const Nftdetails = (props) => {
     return item.itemId == parseInt(id)
 
   })
-  const handleclick = (e) => {
-    console.log(e, 'ee');
+  const handleclick = async(e) => {
+    console.log("in buytNFT",e);
+  try{
+  const etherprice=e.price.toString();
+  const weiPrice= web3.utils.toWei(etherprice,'ether');
+    let response= await buytNFT(web3,marketContract,e.itemId,weiPrice,accounts,dispatch);
+  }catch(error){
+    console.log("zerror in Buy",error);
+  }
   }
   console.log(filteritem, 'filteritem');
   return (
@@ -70,7 +78,7 @@ const Nftdetails = (props) => {
         <div className={`${classes.cardsEndDiv} ml-4`}>
           {/* <p>{filterProducts.price}/Rs</p> */}
           <button
-            onClick={() => handleclick(filteritem ? filteritem.itemId : '...')}
+            onClick={() => handleclick(filteritem ? filteritem : '...')}
           >
             {" "}
             {/* <Cart /> */}
