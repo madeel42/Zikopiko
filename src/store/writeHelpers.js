@@ -10,7 +10,8 @@ export const minttoMarketNFT= async (web3, contract,accounts,price,dispatch) => 
    console.log(" before Minting to market", contract);
    try{
 
-      const result=await contract.methods.minttoMarket(accounts[0],price).send({from:accounts[0]})
+      const weiPrice=web3.utils.toWei(price.toString(),'ether');
+      const result=await contract.methods.minttoMarket(accounts[0],weiPrice).send({from:accounts[0]})
       
       console.log("result after minting",result);
       return result;
