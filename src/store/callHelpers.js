@@ -11,7 +11,7 @@ export const getnFt = async (web3, mktContract,dispatch) => {
  const nftCount=await mktContract.methods.itemCounter().call();
  var nftList=[];
     console.log("nft count", nftCount); 
-
+try{
     for (var i=0; i<nftCount;i++){
         let nft = await mktContract.methods.viewNFT(i).call();
         console.log("URI",nft)
@@ -19,6 +19,9 @@ export const getnFt = async (web3, mktContract,dispatch) => {
         nftList.push(nft);
 
     }
+}catch(error){
+    
+    console.log("error in nft call",error);}
     console.log("NFT URIs",nftList);
     dispatch(setNFTList(nftList));
     

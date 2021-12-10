@@ -9,7 +9,8 @@ const Products = () => {
   const [NFTITEM, setNFTITEM] = useState([])
   const [RangeITEM, setRangeITEM] = useState([])
   useEffect(() => {
-    hitNftApiToken()
+    hitNftApiToken();
+    console.log("NFTLIST,",nftList);
     setNFTITEM([])
   }, [web3, accounts, nftList])
   const hitNftApiToken = () => {
