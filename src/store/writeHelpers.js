@@ -7,7 +7,7 @@ import {  NFT_CONTRACT_ABI,NFT_CONTRACT_ADDRESS } from '../contract/NFT_ABI';
 
 /* function to mint  to marketNFT*/
 export const minttoMarketNFT= async (web3, contract,accounts,price,dispatch) => {
-   console.log(" before Minting", contract);
+   console.log(" before Minting to market", contract);
    try{
 
       const result=await contract.methods.minttoMarket(accounts[0],price).send({from:accounts[0]})
@@ -23,7 +23,7 @@ export const minttoMarketNFT= async (web3, contract,accounts,price,dispatch) => 
 
 /* function to mint NFT*/
 export const mintNFT = async (web3, contract,accounts,dispatch) => {
-   console.log("in before NFT buy", contract);
+   console.log("in before self minting NFT buy", contract);
    try{
 
       const result=await contract.methods.createNFT(accounts[0]).send({from:accounts[0]})
