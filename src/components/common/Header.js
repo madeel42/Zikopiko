@@ -1,6 +1,16 @@
+import React, { useEffect, useCallback, useState,useContext } from "react";
 import { NavLink } from 'react-router-dom';
+import { globalContext } from '../../context/GlobalState'
+
+// import {loadBlockchain} from '../../store/asyncActions';
 
 const Header = () =>{
+ const [{ web3, accounts,marketContract, nftContract, nftList },dispatch] = useContext(globalContext)
+
+  const handliclick = () => {
+   alert('connect')
+  // loadBlockchain(dispatch);
+  }
     return(
         <header className="header">
         <div className="container">
@@ -47,7 +57,8 @@ const Header = () =>{
               </ul>
               <div className="creat-connect-btn-wrap">
                 <div className="btn-primary-creat">
-                  <a href="creatitems.html"><img src="assets/images/SVG Icons/person_black_24dp (1).svg" alt="" /></a>
+                  <button style={{padding:'10px', borderRadius:'6px'}} onClick={handliclick}>Connect</button>
+                  {/* <a href="creatitems.html"><img src="assets/images/SVG Icons/person_black_24dp (1).svg" alt="" /></a> */}
                 </div>
                 <div className="btn-Connet">
                   <a href="creatitems.html"><img src="assets/images/SVG Icons/account_balance_wallet_black_24dp.svg" alt="" /></a>
