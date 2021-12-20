@@ -2,14 +2,16 @@ import React, { useEffect, useCallback, useState,useContext } from "react";
 import { NavLink } from 'react-router-dom';
 import { globalContext } from '../../context/GlobalState'
 
-// import {loadBlockchain} from '../../store/asyncActions';
+import {loadBlockchain} from '../../store/asyncActions';
 
 const Header = () =>{
- const [{ web3, accounts,marketContract, nftContract, nftList },dispatch] = useContext(globalContext)
+ const [{ web3},dispatch] = useContext(globalContext)
 
   const handliclick = () => {
-   alert('connect')
-  // loadBlockchain(dispatch);
+  if (web3){
+    alert ("already connected");
+  }
+   loadBlockchain(dispatch);
   }
     return(
         <header className="header">
