@@ -45,7 +45,7 @@ const NFTForm = () => {
     };
     const dispatchData = (data) => {
         console.log(data, 'data')
-        fetch("/postData", {
+        fetch("https://zikopika.herokuapp.com/postData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

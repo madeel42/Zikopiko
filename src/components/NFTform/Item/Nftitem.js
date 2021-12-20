@@ -10,7 +10,7 @@ export const Nftitem = () => {
     handleSearch()
   })
   const handleSearch = () => {
-    fetch("/getSearchData", {
+    fetch("https://zikopika.herokuapp.com/getSearchData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

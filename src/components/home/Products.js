@@ -15,8 +15,9 @@ const Products = () => {
   }, [web3, accounts, nftList])
   const hitNftApiToken = () => {
     nftList && nftList.forEach(NFTToken => {
+      
       let id = NFTToken._tokenId
-      fetch("/getSearchData", {
+      fetch("https://zikopika.herokuapp.com/getSearchData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
