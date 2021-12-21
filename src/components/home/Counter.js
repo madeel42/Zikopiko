@@ -1,3 +1,4 @@
+
 const Counter = () =>{
     return(
         <div>
@@ -21,10 +22,9 @@ const Counter = () =>{
             </div>
           </div>
         </div>
+        {/* <div className="conunter-bottom-text-section"> */}
         <div className="conunter-bottom-text-section">
-          <p> Lorem Ipsum has been the industry's standard dummy 
-            text ever since the 1500s, when an unknown printer took a 
-            galley of type and scrambled it to make</p>
+        {/* <video width='100%' height='300'  src={vid} controls /> */}
         </div>
       </div>
     )
