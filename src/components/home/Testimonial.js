@@ -1,4 +1,4 @@
-// import vid from '../../asset/nft.mp4'
+import vid from '../../assests/nft.mp4'
 const Testimonial = () => {
     return (
         <div className="testimonial-section-wrapper">
@@ -20,9 +20,9 @@ const Testimonial = () => {
             </div>
             <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-12">
-                <div className="testimonial-left-section">
-                {/* <video width='100%' height='300'  src={vid} controls /> */}
-                </div>
+                    <div className="testimonial-left-section">
+                        <video width='100%' height='300' src={vid} controls />
+                    </div>
                 </div>
             </div>
         </div>
